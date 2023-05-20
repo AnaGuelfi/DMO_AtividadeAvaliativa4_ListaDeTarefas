@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import br.edu.ifsp.dmo.model.dao.ITarefaDao;
 import br.edu.ifsp.dmo.model.entities.Tarefa;
 import br.edu.ifsp.dmo.mvp.MainMVP;
+import br.edu.ifsp.dmo.utils.Constant;
 
 public class MainPresenter implements MainMVP.Presenter {
     private MainMVP.View view;

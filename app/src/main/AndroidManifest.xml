@@ -12,6 +12,9 @@
         android:theme="@style/Theme.App13_ListaDeTarefas"
         tools:targetApi="31">
         <activity
+            android:name=".view.TarefaDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
