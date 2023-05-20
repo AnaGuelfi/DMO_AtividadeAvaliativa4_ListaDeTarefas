@@ -6,6 +6,15 @@ public class Tarefa {
     private String titulo;
     private String descricao;
     private LocalDate dataCriacao;
+    private boolean favorite;
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
 
     public String getTitulo() {
         return titulo;
