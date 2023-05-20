@@ -61,6 +61,12 @@ public class ItemPocketRecyclerAdapter extends RecyclerView.Adapter<ItemPocketRe
                 removeClick(tarefa);
             }
         });
+        holder.editImageView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                editClick(tarefa);
+            }
+        });
     }
 
     @Override
@@ -82,12 +88,18 @@ public class ItemPocketRecyclerAdapter extends RecyclerView.Adapter<ItemPocketRe
         notifyDataSetChanged();
     }
 
+    private void editClick(Tarefa tarefa){
+        presenter.editTask(tarefa);
+        notifyDataSetChanged();
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView tituloTextView;
         public TextView descricaoTextView;
         public ImageView favoriteImageView;
         public ImageView removeImageView;
+        public ImageView editImageView;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -95,6 +107,7 @@ public class ItemPocketRecyclerAdapter extends RecyclerView.Adapter<ItemPocketRe
             descricaoTextView = itemView.findViewById(R.id.text_url_listitem);
             favoriteImageView = itemView.findViewById(R.id.image_favorite_listitem);
             removeImageView = itemView.findViewById(R.id.image_remove_listitem);
+            editImageView = itemView.findViewById(R.id.image_edit_listitem);
             itemView.setOnClickListener(this);
         }
 

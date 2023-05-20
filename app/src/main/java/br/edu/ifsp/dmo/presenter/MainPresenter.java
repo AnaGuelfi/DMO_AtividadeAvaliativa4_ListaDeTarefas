@@ -68,4 +68,9 @@ public class MainPresenter implements MainMVP.Presenter {
     public void removeTask(Tarefa tarefa) {
         dao.delete(tarefa);
     }
+
+    @Override
+    public void editTask(Tarefa tarefa) {
+        openDetails(tarefa);
+    }
 }
