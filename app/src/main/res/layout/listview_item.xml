@@ -11,17 +11,41 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
+        android:minWidth="20dp"
+        android:minHeight="20dp"
         android:src="@drawable/ic_favorite"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_title_listitem" />
+
+    <ImageView
+        android:id="@+id/image_remove_listitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:minWidth="20dp"
+        android:minHeight="20dp"
+        android:src="@drawable/ic_remove"
+        app:layout_constraintStart_toStartOf="@id/image_favorite_listitem"
+        app:layout_constraintTop_toTopOf="@id/text_title_listitem" />
+
+    <ImageView
+        android:id="@+id/image_edit_listitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:minWidth="20dp"
+        android:minHeight="20dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintStart_toStartOf="@id/image_favorite_listitem"
         app:layout_constraintTop_toTopOf="@id/text_title_listitem" />
 
     <TextView
         android:id="@+id/text_title_listitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="80dp"
         android:text="title"
         android:textAllCaps="true"
         android:textColor="@color/black"
@@ -35,6 +59,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/purple_500"
         android:textSize="16sp"
+        android:text="descricao"
         app:layout_constraintStart_toStartOf="@id/text_title_listitem"
         app:layout_constraintTop_toBottomOf="@id/text_title_listitem" />
 
