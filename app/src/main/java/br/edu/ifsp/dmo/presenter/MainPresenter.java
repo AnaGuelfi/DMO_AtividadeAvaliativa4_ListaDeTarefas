@@ -2,17 +2,27 @@ package br.edu.ifsp.dmo.presenter;
 
 import android.content.Intent;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import br.edu.ifsp.dmo.model.dao.ITarefaDao;
+import br.edu.ifsp.dmo.model.dao.TarefaDaoSingleton;
 import br.edu.ifsp.dmo.model.entities.Tarefa;
 import br.edu.ifsp.dmo.mvp.MainMVP;
 import br.edu.ifsp.dmo.utils.Constant;
+import br.edu.ifsp.dmo.view.RecyclerViewItemClickListener;
+import br.edu.ifsp.dmo.view.TarefaDetailsActivity;
+import br.edu.ifsp.dmo.view.adapter.ItemPocketRecyclerAdapter;
 
 public class MainPresenter implements MainMVP.Presenter {
     private MainMVP.View view;
     private ITarefaDao dao;
     Tarefa tarefa;
+
+    public MainPresenter(MainMVP.View view) {
+        this.view = view;
+        dao = TarefaDaoSingleton.getInstance();
+    }
     @Override
     public void deatach() {
         view = null;
