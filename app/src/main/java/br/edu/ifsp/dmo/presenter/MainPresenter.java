@@ -63,4 +63,9 @@ public class MainPresenter implements MainMVP.Presenter {
         tarefa.setFavorite(!tarefa.isFavorite());
         dao.update(tarefa.getTitulo(), tarefa);
     }
+
+    @Override
+    public void removeTask(Tarefa tarefa) {
+        dao.delete(tarefa);
+    }
 }
