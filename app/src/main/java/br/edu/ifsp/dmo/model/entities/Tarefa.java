@@ -8,11 +8,14 @@ public class Tarefa {
     private LocalDate dataCriacao;
     private boolean favorite;
 
-    public boolean isFavorite() {
-        return favorite;
+    public Tarefa(String descricao, String titulo){
+        this.descricao = descricao;
+        this.titulo = titulo;
     }
 
-    public void setFavorite(boolean favorite) {
+    public Tarefa(String descricao, String titulo, boolean favorite){
+        this.descricao = descricao;
+        this.titulo = titulo;
         this.favorite = favorite;
     }
 
@@ -38,5 +41,13 @@ public class Tarefa {
 
     public void setDataCriacao(LocalDate dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.edu.ifsp.dmo.model.entities.Tarefa;
 
-public class TarefaDaoSingleton {
+public class TarefaDaoSingleton implements ITarefaDao{
     private static TarefaDaoSingleton instance = null;
     private List<Tarefa> dataset;
     private TarefaDaoSingleton() {
