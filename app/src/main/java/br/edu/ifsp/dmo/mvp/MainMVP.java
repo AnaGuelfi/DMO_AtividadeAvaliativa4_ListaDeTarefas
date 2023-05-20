@@ -13,17 +13,11 @@ public interface MainMVP {
 
     interface Presenter{
         void deatach();
-
         void openDetails();
-
         void openDetails(Tarefa tarefa);
-
         void populateList(RecyclerView recyclerView);
-
         void favoriteTask(Tarefa tarefa);
-
         void removeTask(Tarefa tarefa);
-
         void editTask(Tarefa tarefa);
     }
 }

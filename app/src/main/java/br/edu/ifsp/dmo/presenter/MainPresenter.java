@@ -23,6 +23,7 @@ public class MainPresenter implements MainMVP.Presenter {
         this.view = view;
         dao = TarefaDaoSingleton.getInstance();
     }
+
     @Override
     public void deatach() {
         view = null;

@@ -6,10 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
 import br.edu.ifsp.dmo.R;
@@ -47,7 +45,7 @@ public class ItemPocketRecyclerAdapter extends RecyclerView.Adapter<ItemPocketRe
         if(tarefa.isFavorite()){
             holder.favoriteImageView.setColorFilter(context.getColor(R.color.RED));
         }else{
-            holder.favoriteImageView.setColorFilter(context.getColor(R.color.gray));
+            holder.favoriteImageView.setColorFilter(context.getColor(R.color.black));
         }
         holder.favoriteImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +92,6 @@ public class ItemPocketRecyclerAdapter extends RecyclerView.Adapter<ItemPocketRe
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
         public TextView tituloTextView;
         public TextView descricaoTextView;
         public ImageView favoriteImageView;

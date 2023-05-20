@@ -16,6 +16,7 @@ public class TarefaDaoSingleton implements ITarefaDao{
             instance = new TarefaDaoSingleton();
         return instance;
     }
+
     @Override
     public void create(Tarefa tarefa) {
         if(tarefa != null){

@@ -22,31 +22,24 @@ public class Tarefa {
     public String getTitulo() {
         return titulo;
     }
-
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-
     public String getDescricao() {
         return descricao;
     }
-
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
     public LocalDate getDataCriacao() {
         return dataCriacao;
     }
-
     public void setDataCriacao(LocalDate dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
-
     public boolean isFavorite() {
         return favorite;
     }
-
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
     }

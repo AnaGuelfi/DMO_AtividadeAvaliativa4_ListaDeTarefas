@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">App13_ListaDeTarefas</string>
+    <string name="titulo_tarefa">Título da Tarefa</string>
+    <string name="descricao_da_tarefa">Descrição da Tarefa</string>
+    <string name="salvar">Salvar</string>
+    <string name="title">title</string>
+    <string name="descricao">descricao</string>
 </resources>
