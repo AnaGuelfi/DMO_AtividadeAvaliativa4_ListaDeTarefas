@@ -5,6 +5,9 @@ import android.content.Intent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Comparator;
+import java.util.stream.Collectors;
+
 import br.edu.ifsp.dmo.model.dao.ITarefaDao;
 import br.edu.ifsp.dmo.model.dao.TarefaDaoSingleton;
 import br.edu.ifsp.dmo.model.entities.Tarefa;
@@ -45,7 +48,7 @@ public class MainPresenter implements MainMVP.Presenter {
     @Override
     public void populateList(RecyclerView recyclerView) {
         ItemPocketRecyclerAdapter adapter = new
-                ItemPocketRecyclerAdapter(view.getContext(), dao.findAll(), this);
+                ItemPocketRecyclerAdapter(view.getContext(), dao.findAll().stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList()), this);
         adapter.setClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onItemClick(int position) {

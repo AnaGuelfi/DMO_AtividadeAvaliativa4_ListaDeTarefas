@@ -1,7 +1,10 @@
 package br.edu.ifsp.dmo.model.dao;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import br.edu.ifsp.dmo.model.entities.Tarefa;
 
@@ -31,6 +34,7 @@ public class TarefaDaoSingleton implements ITarefaDao{
                 .filter(tarefa1 -> tarefa1.getTitulo().equals(oldTitle))
                 .findAny()
                 .orElse(null);
+        dataset.stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList());
         if(inDataset != null){
             inDataset.setTitulo(tarefa.getTitulo());
             inDataset.setDataCriacao(tarefa.getDataCriacao());
@@ -56,6 +60,6 @@ public class TarefaDaoSingleton implements ITarefaDao{
 
     @Override
     public List<Tarefa> findAll() {
-        return dataset;
+        return dataset.stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList());
     }
 }
