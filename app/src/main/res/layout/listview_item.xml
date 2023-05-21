@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_url_listitem"
+        android:id="@+id/text_desc_listitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/purple_500"
@@ -62,5 +62,15 @@
         android:text="@string/descricao"
         app:layout_constraintStart_toStartOf="@id/text_title_listitem"
         app:layout_constraintTop_toBottomOf="@id/text_title_listitem" />
+
+    <TextView
+        android:id="@+id/text_data_listitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/purple_500"
+        android:textSize="16sp"
+        android:text="@string/data"
+        app:layout_constraintStart_toStartOf="@id/text_desc_listitem"
+        app:layout_constraintTop_toBottomOf="@id/text_desc_listitem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

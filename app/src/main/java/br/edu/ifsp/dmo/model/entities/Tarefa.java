@@ -1,6 +1,7 @@
 package br.edu.ifsp.dmo.model.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Tarefa {
     private String titulo;
@@ -8,14 +9,18 @@ public class Tarefa {
     private LocalDate dataCriacao;
     private boolean favorite;
 
-    public Tarefa(String descricao, String titulo){
+    public Tarefa(String descricao, String titulo, String data){
         this.descricao = descricao;
         this.titulo = titulo;
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.dataCriacao = LocalDate.parse(data, dateFormatter);
     }
 
-    public Tarefa(String descricao, String titulo, boolean favorite){
+    public Tarefa(String descricao, String titulo, String data, boolean favorite){
         this.descricao = descricao;
         this.titulo = titulo;
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.dataCriacao = LocalDate.parse(data, dateFormatter);
         this.favorite = favorite;
     }
 

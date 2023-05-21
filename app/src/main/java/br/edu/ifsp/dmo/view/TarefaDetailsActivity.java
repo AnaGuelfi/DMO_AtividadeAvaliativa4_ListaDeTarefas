@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import br.edu.ifsp.dmo.R;
 import br.edu.ifsp.dmo.mvp.TarefaDetailsMVP;
 import br.edu.ifsp.dmo.presenter.TarefaDetailsPresenter;
@@ -19,6 +22,7 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
     private TarefaDetailsMVP.Presenter presenter;
     private EditText descricaoEditText;
     private EditText tituloEditText;
+    private EditText dataEditText;
     private Button saveButton;
 
     @Override
@@ -49,7 +53,8 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
         if(v == saveButton){
             presenter.saveTask(
                     tituloEditText.getText().toString(),
-                    descricaoEditText.getText().toString());
+                    descricaoEditText.getText().toString(),
+                    dataEditText.getText().toString());
         }
     }
 
@@ -62,9 +67,11 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
     }
 
     @Override
-    public void updateUI(String title, String descricao) {
+    public void updateUI(String title, String descricao, LocalDate data) {
         tituloEditText.setText(title);
         descricaoEditText.setText(descricao);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        dataEditText.setText(data.format(dateFormatter));
     }
 
     @Override
@@ -86,6 +93,7 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
     private void findViews(){
         descricaoEditText = findViewById(R.id.edittext_descricao_details);
         tituloEditText = findViewById(R.id.edittext_title_details);
+        dataEditText = findViewById(R.id.edittext_data);
         saveButton = findViewById(R.id.button_save_task);
     }
 

@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import br.edu.ifsp.dmo.R;
@@ -42,6 +44,8 @@ public class ItemPocketRecyclerAdapter extends RecyclerView.Adapter<ItemPocketRe
         Tarefa tarefa = data.get(position);
         holder.tituloTextView.setText(tarefa.getTitulo());
         holder.descricaoTextView.setText(tarefa.getDescricao());
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        holder.dataTextView.setText(tarefa.getDataCriacao().format(dateFormatter));
         if(tarefa.isFavorite()){
             holder.favoriteImageView.setColorFilter(context.getColor(R.color.RED));
         }else{
@@ -94,6 +98,7 @@ public class ItemPocketRecyclerAdapter extends RecyclerView.Adapter<ItemPocketRe
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView tituloTextView;
         public TextView descricaoTextView;
+        public TextView dataTextView;
         public ImageView favoriteImageView;
         public ImageView removeImageView;
         public ImageView editImageView;
@@ -101,7 +106,8 @@ public class ItemPocketRecyclerAdapter extends RecyclerView.Adapter<ItemPocketRe
         public ViewHolder(View itemView){
             super(itemView);
             tituloTextView = itemView.findViewById(R.id.text_title_listitem);
-            descricaoTextView = itemView.findViewById(R.id.text_url_listitem);
+            descricaoTextView = itemView.findViewById(R.id.text_desc_listitem);
+            dataTextView = itemView.findViewById(R.id.text_data_listitem);
             favoriteImageView = itemView.findViewById(R.id.image_favorite_listitem);
             removeImageView = itemView.findViewById(R.id.image_remove_listitem);
             editImageView = itemView.findViewById(R.id.image_edit_listitem);

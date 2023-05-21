@@ -5,4 +5,5 @@
     <string name="salvar">Salvar</string>
     <string name="title">title</string>
     <string name="descricao">descricao</string>
+    <string name="data">Data</string>
 </resources>

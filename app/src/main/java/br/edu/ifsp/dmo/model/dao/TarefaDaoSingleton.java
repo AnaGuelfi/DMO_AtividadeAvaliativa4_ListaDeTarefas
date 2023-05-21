@@ -33,6 +33,7 @@ public class TarefaDaoSingleton implements ITarefaDao{
                 .orElse(null);
         if(inDataset != null){
             inDataset.setTitulo(tarefa.getTitulo());
+            inDataset.setDataCriacao(tarefa.getDataCriacao());
             inDataset.setDescricao(tarefa.getDescricao());
             inDataset.setFavorite(tarefa.isFavorite());
             return true;
