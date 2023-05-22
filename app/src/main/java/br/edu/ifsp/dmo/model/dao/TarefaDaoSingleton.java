@@ -40,9 +40,9 @@ public class TarefaDaoSingleton implements ITarefaDao{
     public void create(Tarefa tarefa) {
         if(tarefa != null){
             dataset.add(tarefa);
-            dataset.stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList());
             writeDataset();
             readDatabase();
+            dataset.stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList());
         }
     }
 
@@ -58,9 +58,9 @@ public class TarefaDaoSingleton implements ITarefaDao{
             inDataset.setDataCriacao(tarefa.getDataCriacao());
             inDataset.setDescricao(tarefa.getDescricao());
             inDataset.setFavorite(tarefa.isFavorite());
-            dataset.stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList());
             writeDataset();
             readDatabase();
+            dataset.stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList());
             return true;
         }
         return false;
@@ -68,7 +68,11 @@ public class TarefaDaoSingleton implements ITarefaDao{
 
     @Override
     public boolean delete(Tarefa tarefa) {
-        return dataset.remove(tarefa);
+        dataset.remove(tarefa);
+        writeDataset();
+        readDatabase();
+        dataset.stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList());
+        return true;
     }
 
     @Override
@@ -81,6 +85,7 @@ public class TarefaDaoSingleton implements ITarefaDao{
 
     @Override
     public List<Tarefa> findAll() {
+        readDatabase();
         return dataset.stream().sorted(Comparator.comparing(Tarefa::isFavorite,Comparator.reverseOrder())).collect(Collectors.toList());
     }
 

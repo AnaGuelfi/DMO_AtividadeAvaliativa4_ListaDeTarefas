@@ -38,8 +38,8 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
 
     @Override
     protected void onStart() {
-        super.onStart();
         presenter.verifyUpdate();
+        super.onStart();
     }
 
     @Override

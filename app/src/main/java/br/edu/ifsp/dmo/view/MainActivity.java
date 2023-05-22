@@ -34,8 +34,20 @@ public class MainActivity extends AppCompatActivity implements MainMVP.View {
 
     @Override
     protected void onStart() {
-        super.onStart();
         presenter.populateList(recyclerView);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onResume() {
+        presenter = new MainPresenter(this);
+        presenter.populateList(recyclerView);
+        super.onResume();
     }
 
     @Override
