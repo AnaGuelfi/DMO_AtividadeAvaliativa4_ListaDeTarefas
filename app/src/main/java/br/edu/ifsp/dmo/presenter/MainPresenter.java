@@ -1,5 +1,6 @@
 package br.edu.ifsp.dmo.presenter;
 
+import android.content.Context;
 import android.content.Intent;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,11 +21,14 @@ import br.edu.ifsp.dmo.view.adapter.ItemPocketRecyclerAdapter;
 public class MainPresenter implements MainMVP.Presenter {
     private MainMVP.View view;
     private ITarefaDao dao;
+    private Context context;
     Tarefa tarefa;
 
     public MainPresenter(MainMVP.View view) {
         this.view = view;
         dao = TarefaDaoSingleton.getInstance();
+        context = view.getContext();
+        dao.setContext(context);
     }
 
     @Override

@@ -9,18 +9,18 @@ public class Tarefa {
     private LocalDate dataCriacao;
     private boolean favorite;
 
-    public Tarefa(String descricao, String titulo, String data){
+    public Tarefa(String descricao, String titulo){
         this.descricao = descricao;
         this.titulo = titulo;
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        this.dataCriacao = LocalDate.parse(data, dateFormatter);
+        this.dataCriacao = LocalDate.now();
     }
 
-    public Tarefa(String descricao, String titulo, String data, boolean favorite){
+    public Tarefa(String descricao, String titulo, boolean favorite){
         this.descricao = descricao;
         this.titulo = titulo;
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        this.dataCriacao = LocalDate.parse(data, dateFormatter);
+        this.dataCriacao = LocalDate.now();
         this.favorite = favorite;
     }
 

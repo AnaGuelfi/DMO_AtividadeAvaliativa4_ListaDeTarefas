@@ -3,6 +3,7 @@ package br.edu.ifsp.dmo.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +23,6 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
     private TarefaDetailsMVP.Presenter presenter;
     private EditText descricaoEditText;
     private EditText tituloEditText;
-    private EditText dataEditText;
     private Button saveButton;
 
     @Override
@@ -53,8 +53,7 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
         if(v == saveButton){
             presenter.saveTask(
                     tituloEditText.getText().toString(),
-                    descricaoEditText.getText().toString(),
-                    dataEditText.getText().toString());
+                    descricaoEditText.getText().toString());
         }
     }
 
@@ -67,11 +66,14 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
     }
 
     @Override
-    public void updateUI(String title, String descricao, LocalDate data) {
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
+    public void updateUI(String title, String descricao) {
         tituloEditText.setText(title);
         descricaoEditText.setText(descricao);
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        dataEditText.setText(data.format(dateFormatter));
     }
 
     @Override
@@ -93,7 +95,6 @@ public class TarefaDetailsActivity extends AppCompatActivity implements TarefaDe
     private void findViews(){
         descricaoEditText = findViewById(R.id.edittext_descricao_details);
         tituloEditText = findViewById(R.id.edittext_title_details);
-        dataEditText = findViewById(R.id.edittext_data);
         saveButton = findViewById(R.id.button_save_task);
     }
 

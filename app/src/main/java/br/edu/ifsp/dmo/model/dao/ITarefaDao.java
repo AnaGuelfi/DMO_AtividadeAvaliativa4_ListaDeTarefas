@@ -1,5 +1,7 @@
 package br.edu.ifsp.dmo.model.dao;
 
+import android.content.Context;
+
 import java.util.List;
 
 import br.edu.ifsp.dmo.model.entities.Tarefa;
@@ -10,4 +12,5 @@ public interface ITarefaDao {
     boolean delete(Tarefa tarefa);
     Tarefa findByTitle(String title);
     List<Tarefa> findAll();
+    void setContext(Context context);
 }
